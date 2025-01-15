@@ -6,11 +6,55 @@
     <title>JS To Dom Events</title>
 </head>
 <body>
+    <!-- Heading to explain the purpose of the page -->
     <h1>Ajke Dom eh Important Events ache.</h1>
-    <!--  button er functionality add korbe. like button eh click korle amk ekhane 11 output dekhabe. -->
+    
+    <!-- Inline event handling: 
+         Button triggers an inline JavaScript function to log 111 to the console -->
     <button onclick="console.log(111)">Click me</button>
-    <!-- try a another button for example -->
-     <button onclick="console.log('why you click me again!')">Click me again</button>
+    
+    <!-- Inline event handling:
+         Button triggers a console log with a string message -->
+    <button onclick="console.log('why you click me again!')">Click me again</button>
+    
+    <!-- Inline style change using the onclick event:
+         Button changes the background color of the page to yellow -->
+    <button onclick="document.body.style.backgroundColor='yellow';">Make Yellow</button>
+    
+    <!-- Function-based event handling:
+         Button calls the `makeRed` function (to be defined in JavaScript) -->
+    <button onclick="makeRed()">Make Red</button>
+    
+    <!-- Event handling by element ID:
+         This button will be assigned functionality via JavaScript using its ID -->
+    <button id="make-blue">Make Blue</button>
+    
+    <!-- Event handling by another approach:
+         This button will also have functionality defined in JavaScript using its ID -->
+    <button id="make-purple">Make Purple</button>
+
 </body>
+
+<!-- JavaScript Section -->
+<script>
+    // Function to make the background color red
+    function makeRed() {
+        document.body.style.backgroundColor = 'red';
+    }
+
+    // Get the button with ID 'make-blue' and assign functionality
+    const makeBlueBtn = document.getElementById('make-blue');
+    makeBlueBtn.onclick = function () {
+        document.body.style.backgroundColor = 'blue';
+    };
+
+    // Get the button with ID 'make-purple' and assign functionality
+    const makePurpleBtn = document.getElementById('make-purple');
+    makePurpleBtn.onclick = function () {
+        document.body.style.backgroundColor = 'purple';
+    };
+</script>
+
+<!-- External JavaScript file (optional) -->
 <script src="js/events.js"></script>
 </html>
