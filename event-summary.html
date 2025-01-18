@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summary</title>
+</head>
+<body>
+    <h1>Final DOM Events Handler</h1>
+
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text">Default input Text.</p>
+    <input id="input-field" type="text" placeholder="Enter new text here">
+    
+    <button id="btn-update">Update</button>
+    <br><br>
+    <button id="event-button">Handle Event</button>
+    <button id="handle-listener">Handle By addEventListener</button>
+
+    <script>
+        // Function to handle button click
+        function handleOnClick() {
+            const handleStatus = document.getElementById('handler-status');
+            handleStatus.innerText = 'Handled by JavaScript function';
+        }
+
+        // Attach event listener to 'event-button'
+        document.getElementById('event-button').addEventListener('click', handleOnClick);
+
+        // Option 2: Handle event with an inline anonymous function
+        document.getElementById('handle-listener').addEventListener('click', function () {
+            const handleStatus = document.getElementById('handler-status');
+            handleStatus.innerText = 'Updated By addEventListener button.';
+        });
+
+        // Option 3: Update text based on input field value
+        document.getElementById('btn-update').addEventListener('click', function () {
+            //console.log('Update button clicked');
+            const inputField = document.getElementById('input-field');
+            const updatedText = inputField.value; 
+            const p = document.getElementById('input-text');
+            p.innerText = updatedText; 
+            inputField.value = '';
+        });
+    </script>
+</body>
+</html>
