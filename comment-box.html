@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a comment box.</title>
+</head>
+<body>
+    <h1>Please add your commments.</h1>
+    <div id="comment-container">
+        <p id="cmt-txt1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quia sapiente dolor quae aut repellendus recusandae aliquam enim nesciunt culpa distinctio vel fugiat nihil ipsa maiores, corrupti libero aperiam, molestias ipsum laboriosam ad quibusdam excepturi voluptas. Commodi placeat nobis distinctio nihil id nemo in incidunt eum laborum vel? Eius, commodi?</p>
+        <p id="cmt-txt2">Atque doloremque rerum quod fuga vitae, quasi culpa et quas neque maiores odit accusamus impedit in eligendi est quos dolor eos necessitatibus perferendis! Delectus labore nobis neque sed. Voluptate blanditiis accusamus, non quidem cupiditate dolores labore reprehenderit nulla sit ipsa amet! Aspernatur libero natus totam quaerat ipsa obcaecati! Possimus, debitis.</p>
+        <p id="cmt-txt3">Doloremque eius sit laborum earum omnis nam necessitatibus excepturi tempore recusandae aliquid. Reprehenderit tenetur sint modi deleniti saepe odit, dolor cum nostrum in animi obcaecati, eligendi, officiis sequi a quam quo? Blanditiis obcaecati omnis incidunt quibusdam necessitatibus! Perferendis, deleniti mollitia atque, qui velit deserunt nesciunt, repellendus esse optio quos dolorum.</p>
+    </div>
+    <div>
+        <textarea name="" id="comment-box" cols="60" rows="6"></textarea>
+        <br>
+        <button id="comment-btn">Push</button>
+    </div>
+
+
+    <script>
+        // first eh dekhbo kon btn eh click korle change hbe oitay jabo.
+        // tarpor addEventListener eh add korbo other functionalities.
+
+        // aproch - 1.
+        // document.getElementById('comment-btn').addEventListener('click', function () {
+        //     const testFeild = document.getElementById('comment-box');
+        //     const UpdateTxt = testFeild.value;
+        //     const p = document.getElementById('cmt-txt1');
+        //     p.innerText = UpdateTxt;
+        //     testFeild.value = '';
+        // })
+
+        // approch - 2;
+        // step - 1 : add event listener.
+        document.getElementById('comment-btn').addEventListener('click', function () {
+            // step -2 : get the comment inside.
+            const cmtBox = document.getElementById('comment-box');
+            const NewComment = cmtBox.value;
+            // step - 3 : set the comment inside the comment-containers.
+            // 1 . get the comment container,
+            // 2. create a new elements('p' tage).
+            // 3. set the txt of the comment as innerText for the p tag.
+            // 4. add the 'p' tag using the appendChild.
+            const commentContainer = document.getElementById('comment-container');
+            const p = document.createElement('p');
+            p.innerText = NewComment;
+            commentContainer.appendChild(p);
+            // step - 4 : cleare the textarea after post click.
+            cmtBox.value = ' ';
+        })
+    </script>
+</body>
+</html>
